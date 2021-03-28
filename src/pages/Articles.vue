@@ -15,7 +15,7 @@ import axios from "axios";
 import Article from "../components/Article";
 
 export default {
-  name: "Article",
+  name: "Articles",
   components: {
     Article,
   },

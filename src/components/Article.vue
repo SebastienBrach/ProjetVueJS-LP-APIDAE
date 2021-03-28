@@ -1,11 +1,19 @@
 <template>
   <div class="card text-center article">
+    <div class="card-header"></div>
     <div class="card-body">
       <h5 class="card-title">{{ titre }}</h5>
       <p class="card-text">{{ contenu }}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        name="action"
+        v-on:click="connexion"
+      >
+        Connexion
+      </button>
     </div>
-    <div class="card-footer text-muted">2 days ago</div>
+    <div class="card-footer"></div>
   </div>
 </template>
 

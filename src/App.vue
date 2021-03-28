@@ -1,6 +1,5 @@
 <template>
   <div id="app" class="container">
-    <MyHeader />
     <router-view></router-view>
     <MyFooter />
   </div>
@@ -8,13 +7,11 @@
 
 <script>
 import MyFooter from "./components/MyFooter";
-import MyHeader from "./components/MyHeader";
 
 export default {
   name: "App",
   components: {
     MyFooter,
-    MyHeader,
   },
 };
 </script>

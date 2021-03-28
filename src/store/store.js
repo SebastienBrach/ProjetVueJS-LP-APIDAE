@@ -29,7 +29,7 @@ Vue.use(Vuex);
 */
 
 const store = new Vuex.Store({
-  state: {
+  /*state: {
     articles: []
   },
   mutations: {
@@ -50,7 +50,7 @@ const store = new Vuex.Store({
         })
         .catch((error) => console.log(error));
     }
-  }
+  }*/
 });
 
 export default store;

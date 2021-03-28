@@ -8,7 +8,7 @@
         class="btn btn-success"
         type="submit"
         name="action"
-        v-on:click="connexion"
+        v-on:click="modifier"
       >
         Modifier</button
       ><br /><br />
@@ -16,7 +16,7 @@
         class="btn btn-danger"
         type="submit"
         name="action"
-        v-on:click="connexion"
+        v-on:click="supprimer"
       >
         Supprimer
       </button>
@@ -33,18 +33,26 @@ import axios from "axios";
 export default {
   name: "Article",
   props: {
-    _id: Number,
+    _id: String,
     titre: String,
     contenu: String,
   },
   methods: {
-    connexion() {
+    modifier() {
       axios
-        .post(
-          "https://brach-node.herokuapp.com/login",
-          { email: this.email, password: this.password },
-          { "Content-Type": "application/x-www-form-urlencoded" }
-        )
+        .put("https://brach-node.herokuapp.com/article", {
+          "Content-Type": "application/x-www-form-urlencoded",
+        })
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => console.log(error));
+    },
+    supprimer() {
+      axios
+        .delete("https://brach-node.herokuapp.com/article", {
+          "Content-Type": "application/x-www-form-urlencoded",
+        })
         .then((response) => {
           console.log(response.data);
         })

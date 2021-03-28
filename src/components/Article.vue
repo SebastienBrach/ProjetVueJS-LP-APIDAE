@@ -8,6 +8,7 @@
         class="btn btn-success"
         type="submit"
         name="action"
+        v-bind="_id"
         v-on:click="modifier"
       >
         Modifier</button

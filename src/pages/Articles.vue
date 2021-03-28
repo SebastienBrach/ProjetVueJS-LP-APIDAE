@@ -4,6 +4,7 @@
       v-for="article in articles"
       v-bind:titre="article.titre"
       v-bind:contenu="article.contenu"
+      v-bind:_id="article._id"
       v-bind:key="article._id"
     />
   </div>

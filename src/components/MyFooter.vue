@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="footer">
     <hr />
     <router-link to="/"> Accueil ||</router-link>
     <router-link to="/article"> Article ||</router-link>
@@ -18,5 +18,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
+#footer {
+  background-color: aqua;
+}
 </style>

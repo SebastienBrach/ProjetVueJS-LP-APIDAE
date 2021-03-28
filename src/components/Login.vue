@@ -1,19 +1,49 @@
 <template>
-  <div>
-    <h1>Se connecter</h1>
-    <label for="email">E-mail : </label>
-    <input type="text" name="email" v-bind:value="email" />
-    <br />
-    <label for="password">Mot de passe : </label>
-    <input type="password" name="password" v-bind:value="password" />
-
-    <pre>data : {{ email }}</pre>
-
-    <button @click="changeData">Se connecter</button>
-  </div>
+  <form>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+              id="email"
+              placeholder="Email"
+              type="email"
+              class="validate"
+              v-model="email"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+              id="password"
+              placeholder="Mot de passe"
+              type="password"
+              class="validate"
+              v-model="password"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s1">
+            <button
+              class="btn waves-effect waves-light"
+              type="submit"
+              name="action"
+              v-on:click="connexion"
+            >
+              Connexion
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </form>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Login",
   data() {
@@ -23,8 +53,18 @@ export default {
     };
   },
   methods: {
-    changeData() {
-      this.email = "";
+    connexion() {
+      const data = { email: this.email, password: this.password };
+      axios
+        .post(
+          "https://brach-node.herokuapp.com/login",
+          { email: this.email, password: this.password },
+          { "Content-Type": "application/x-www-form-urlencoded" }
+        )
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => console.log(error));
     },
   },
 };

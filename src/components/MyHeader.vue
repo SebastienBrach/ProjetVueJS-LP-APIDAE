@@ -1,25 +1,18 @@
 <template>
-  <div id="footer">
-    <hr />
-    <router-link to="/"> Accueil ||</router-link>
-    <router-link to="/article"> Article ||</router-link>
-    <router-link to="/login"> Login ||</router-link>
+  <div id="header">
+    <h1>Blog d'Articles</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "MyFooter",
-  data() {
-    return {
-      article: "",
-    };
-  },
+  name: "MyHeader",
 };
 </script>
 
 <style>
-#footer {
-  background-color: aqua;
+#header {
+  background-color: black;
+  color: white;
 }
 </style>

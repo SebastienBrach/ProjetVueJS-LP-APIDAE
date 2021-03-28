@@ -27,7 +27,9 @@ export default {
   mounted() {
     axios
       .get("https://brach-node.herokuapp.com/article")
-      .then((response) => (this.articles = response.data.data))
+      .then((response) =>
+        console.log(response.data)((this.articles = response.data.data))
+      )
       .catch((error) => console.log(error));
   },
 };

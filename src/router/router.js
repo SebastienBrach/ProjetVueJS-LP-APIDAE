@@ -1,6 +1,6 @@
 import Home from "../pages/Home";
-import Register from "../pages/Register";
-import Login from "../pages/Login";
+import Register from "../pages/RegisterForm";
+import Login from "../pages/LoginForm";
 import Article from "../pages/Articles";
 
 import axios from "axios";

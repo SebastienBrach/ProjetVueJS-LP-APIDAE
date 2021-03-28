@@ -1,27 +1,29 @@
 <template>
-  <div class="card text-center article">
-    <div class="card-header"></div>
-    <div class="card-body">
-      <h5 class="card-title">{{ titre }}</h5>
-      <p class="card-text">{{ contenu }}</p>
-      <button
-        class="btn btn-success"
-        type="submit"
-        name="action"
-        v-on:click="modifier"
-      >
-        Modifier</button
-      ><br /><br />
-      <button
-        class="btn btn-danger"
-        type="submit"
-        name="action"
-        v-on:click="supprimer"
-      >
-        Supprimer
-      </button>
+  <div>
+    <div class="card text-center article">
+      <div class="card-header"></div>
+      <div class="card-body">
+        <h5 class="card-title">{{ titre }}</h5>
+        <p class="card-text">{{ contenu }}</p>
+        <button
+          class="btn btn-success"
+          type="submit"
+          name="action"
+          v-on:click="modifier"
+        >
+          Modifier</button
+        ><br /><br />
+        <button
+          class="btn btn-danger"
+          type="submit"
+          name="action"
+          v-on:click="supprimer"
+        >
+          Supprimer
+        </button>
+      </div>
+      <div class="card-footer"></div>
     </div>
-    <div class="card-footer"></div>
   </div>
 </template>
 

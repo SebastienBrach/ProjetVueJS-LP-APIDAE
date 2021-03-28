@@ -8,7 +8,6 @@
         class="btn btn-success"
         type="submit"
         name="action"
-        v-bind="_id"
         v-on:click="modifier"
       >
         Modifier</button
@@ -26,8 +25,6 @@
   </div>
 </template>
 
-
-
 <script>
 import axios from "axios";
 
@@ -41,7 +38,7 @@ export default {
   methods: {
     modifier() {
       axios
-        .put("https://brach-node.herokuapp.com/article", {
+        .put("https://brach-node.herokuapp.com/article/" + this._id, {
           "Content-Type": "application/x-www-form-urlencoded",
         })
         .then((response) => {
@@ -51,7 +48,7 @@ export default {
     },
     supprimer() {
       axios
-        .delete("https://brach-node.herokuapp.com/article", {
+        .delete("https://brach-node.herokuapp.com/article/" + this._id, {
           "Content-Type": "application/x-www-form-urlencoded",
         })
         .then((response) => {

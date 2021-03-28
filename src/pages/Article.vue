@@ -4,7 +4,7 @@
       v-for="article in articles"
       v-bind:titre="article.titre"
       v-bind:contenu="article.contenu"
-      v-bind:key="article.id"
+      v-bind:key="article._id"
     />
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
     axios
       .get("https://brach-node.herokuapp.com/article")
       .then((response) =>
-        console.log(response.data)((this.articles = response.data.data))
+        console.log(response.data)((this.articles = response.data))
       )
       .catch((error) => console.log(error));
   },

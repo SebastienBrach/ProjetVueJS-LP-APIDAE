@@ -6,7 +6,7 @@
 export default {
   name: "Article",
   props: {
-    idArticle: Number,
+    _id: Number,
     titre: String,
     contenu: String,
   },

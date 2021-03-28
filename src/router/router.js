@@ -1,7 +1,7 @@
 import Home from "../pages/Home";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
-import Article from "../pages/Article";
+import Article from "../pages/Articles";
 
 import axios from "axios";
 import Vue from "vue";

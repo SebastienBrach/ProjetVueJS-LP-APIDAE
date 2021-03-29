@@ -15,7 +15,8 @@ const routes = [
   { path: "/register", component: Register, name: "register" },
   { path: "/login", component: Login, name: "login" },
   { path: "/article", component: Article, name: "article" },
-  { path: "/add/article", component: AddArticle, name: "addArticle" }
+  { path: "/add/article", component: AddArticle, name: "addArticle" },
+  { path: "/update/article", component: AddArticle, name: "updateArticle" }
 ];
 
 Vue.prototype.$axios = axios;

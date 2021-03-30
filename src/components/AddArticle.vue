@@ -31,13 +31,14 @@ export default {
       bodyFormData.append("titre", this.titre);
       bodyFormData.append("contenu", this.contenu);
       bodyFormData.append("mail", this.mail);
+      console.log(bodyFormData);
       axios
         .post("https://brach-node.herokuapp.com/addArticle", bodyFormData, {
           "Content-Type": "multipart/form-data",
         })
         .then((response) => {
           console.log(response.data);
-          this.$myRouter.push("/article");
+          /*this.$myRouter.push("/article");*/
         })
         .catch((error) => console.log(error));
     },

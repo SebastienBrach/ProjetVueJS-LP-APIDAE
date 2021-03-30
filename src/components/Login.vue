@@ -27,7 +27,7 @@
         <div class="row">
           <div class="col s1">
             <button
-              class="btn waves-effect waves-light"
+              class="btn btn-primary"
               type="submit"
               name="action"
               v-on:click="connexion"
@@ -48,12 +48,15 @@ export default {
   name: "Login",
   data() {
     return {
+      email: "",
+      password: "",
       jwt: "",
     };
   },
   methods: {
     connexion() {
       const data = { email: this.email, password: this.password };
+      console.log(data);
       axios
         .post(
           "https://brach-node.herokuapp.com/login",
@@ -61,7 +64,7 @@ export default {
           { "Content-Type": "application/x-www-form-urlencoded" }
         )
         .then((response) => {
-          console.log(response.data);
+          console.log(response);
         })
         .catch((error) => console.log(error));
     },

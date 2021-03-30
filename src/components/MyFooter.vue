@@ -16,6 +16,6 @@ export default {
 
 <style>
 #footer {
-  background-color: aqua;
+  background-color: lightgrey;
 }
 </style>

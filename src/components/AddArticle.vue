@@ -34,7 +34,7 @@ export default {
       };
       console.log(data);
       axios
-        .post("https://brach-node.herokuapp.com/article", data, {
+        .post("https://brach-node.herokuapp.com/addArticle", data, {
           "Content-Type": "application/x-www-form-urlencoded",
         })
         .then((response) => {

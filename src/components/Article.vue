@@ -55,7 +55,7 @@ export default {
         })
         .then((response) => {
           console.log(response.data);
-          this.$router.push("/article");
+          this.$myRouter.push("/article");
         })
         .catch((error) => console.log(error));
     },

@@ -25,6 +25,6 @@ const router = new VueRouter({
   routes // short for `routes: routes`
 });
 
-Vue.prototype.$router = router;
+Vue.prototype.$myRouter = router;
 
 export default router;

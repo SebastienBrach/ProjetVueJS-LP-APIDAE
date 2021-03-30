@@ -56,15 +56,11 @@ export default {
   methods: {
     connexion() {
       const data = { email: this.email, password: this.password };
-      console.log(data);
       axios
-        .post(
-          "https://brach-node.herokuapp.com/login",
-          { email: this.email, password: this.password },
-          { "Content-Type": "application/x-www-form-urlencoded" }
-        )
+        .post("https://brach-node.herokuapp.com/login", data)
         .then((response) => {
-          console.log(response.data);
+          localStorage.setItem("jwt", response.data.jwt);
+          console.log(response.data.jwt);
         })
         .catch((error) => console.log(error));
     },

@@ -55,7 +55,7 @@ export default {
         })
         .then((response) => {
           console.log(response.data);
-          this.$myRouter.go(this.$myRouter.currentRoute);
+          window.location.reload();
         })
         .catch((error) => console.log(error));
     },

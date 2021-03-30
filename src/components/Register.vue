@@ -8,8 +8,6 @@
     <label for="password">Mot de passe : </label>
     <input type="password" name="password" v-model="password" />
 
-    <pre>data : {{ data }}</pre>
-
     <button @click="createAccount">S'incrire</button>
     <!-- </form> -->
   </div>
@@ -22,13 +20,10 @@ export default {
     return {
       email: "",
       password: "",
-      data: "",
     };
   },
   methods: {
-    createAccount() {
-      this.data = this.email + " " + this.password;
-    },
+    createAccount() {},
   },
 };
 </script>

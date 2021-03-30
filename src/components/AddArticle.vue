@@ -27,20 +27,28 @@ export default {
   },
   methods: {
     ajouter() {
+      const data = {
+        titre: this.titre,
+        contenu: this.contenu,
+        mail: this.mail,
+      };
       const bodyFormData = new FormData();
       bodyFormData.append("titre", this.titre);
       bodyFormData.append("contenu", this.contenu);
       bodyFormData.append("mail", this.mail);
-      for (var value of bodyFormData.values()) {
-        console.log(value);
-      }
-      axios
+      /*axios
         .post("http://localhost:3001/addarticle", bodyFormData)
         .then((response) => {
           console.log(response.data);
-          /*this.$myRouter.push("/article");*/
+          this.$myRouter.push("/article");
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.log(error));*/
+
+      axios({
+        method: "post",
+        url: "http://localhost:3001/addarticle",
+        data: data,
+      });
     },
   },
 };

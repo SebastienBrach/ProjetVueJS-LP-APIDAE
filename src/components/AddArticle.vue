@@ -32,22 +32,18 @@ export default {
         contenu: this.contenu,
         mail: this.mail,
       };
-      const bodyFormData = new FormData();
+      /*const bodyFormData = new FormData();
       bodyFormData.append("titre", this.titre);
       bodyFormData.append("contenu", this.contenu);
-      bodyFormData.append("mail", this.mail);
-      /*axios
-        .post("http://localhost:3001/addarticle", bodyFormData)
-        .then((response) => {
-          console.log(response.data);
-          this.$myRouter.push("/article");
-        })
-        .catch((error) => console.log(error));*/
+      bodyFormData.append("mail", this.mail);*/
 
       axios({
         method: "post",
-        url: "http://localhost:3001/addarticle",
+        url: "https://brach-node.herokuapp.com/addarticle",
         data: data,
+      }).then((response) => {
+        console.log(response.data);
+        this.$myRouter.push("/article");
       });
     },
   },

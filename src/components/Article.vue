@@ -39,9 +39,11 @@ export default {
   },
   methods: {
     modifier() {
+      const jwt = localStorage.getItem("jwt");
       axios
         .put("https://brach-node.herokuapp.com/article/" + this._id, {
           "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: `Bearer ${jwt}`,
         })
         .then((response) => {
           console.log(response.data);
@@ -49,9 +51,11 @@ export default {
         .catch((error) => console.log(error));
     },
     supprimer() {
+      const jwt = localStorage.getItem("jwt");
       axios
-        .delete("https://brach-node.herokuapp.com/article/" + this._id, {
+        .delete("http://localhost:3001/article/" + this._id, {
           "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: `Bearer ${jwt}`,
         })
         .then((response) => {
           console.log(response.data);

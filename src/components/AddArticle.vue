@@ -27,15 +27,13 @@ export default {
   },
   methods: {
     ajouter() {
-      const data = {
-        titre: this.titre,
-        contenu: this.contenu,
-        mail: this.mail,
-      };
-      console.log(data);
+      var bodyFormData = new FormData();
+      bodyFormData.append("titre", this.titre);
+      bodyFormData.append("contenu", this.contenu);
+      bodyFormData.append("mail", this.mail);
       axios
-        .post("https://brach-node.herokuapp.com/addArticle", data, {
-          "Content-Type": "application/x-www-form-urlencoded",
+        .post("https://brach-node.herokuapp.com/addArticle", bodyFormData, {
+          "Content-Type": "multipart/form-data",
         })
         .then((response) => {
           console.log(response.data);

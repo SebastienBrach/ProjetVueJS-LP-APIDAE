@@ -57,6 +57,7 @@ export default {
       contenu: "",
       user: "",
       isLoading: true,
+      articles: [],
     };
   },
   methods: {

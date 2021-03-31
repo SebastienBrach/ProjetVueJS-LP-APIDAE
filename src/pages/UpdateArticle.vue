@@ -1,6 +1,5 @@
 <template>
   <div id="listeArticle">
-    HELLO
     <UpdateArticle
       v-bind:titre="article.titre"
       v-bind:contenu="article.contenu"
@@ -20,7 +19,10 @@ export default {
   },
   data() {
     return {
-      articles: [],
+      titre: "",
+      contenu: "",
+      id: "",
+      isLoading: true,
     };
   },
   mounted() {
@@ -30,7 +32,7 @@ export default {
         const article = response.data;
         this.titre = article.titre;
         this.contenu = article.contenu;
-        this.user = article.user;
+        this.id = article._id;
         this.isLoading = false;
       });
   },

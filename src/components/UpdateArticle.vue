@@ -4,12 +4,7 @@
       <form class="col s12">
         <div class="row">
           <div class="input-field col s12">
-            <input
-              id="titre"
-              placeholder="Email"
-              type="text"
-              v-model="titre"
-            />{{ titre }}
+            <input id="titre" placeholder="Email" type="text" v-model="titre" />
           </div>
         </div>
         <div class="row">
@@ -19,14 +14,7 @@
               placeholder="contenu"
               type="text"
               v-model="contenu"
-            />{{ contenu }}
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="user" placeholder="user" type="text" v-model="user" />{{
-              user
-            }}
+            />
           </div>
         </div>
         <div class="row">
@@ -35,9 +23,9 @@
               class="btn btn-primary"
               type="submit"
               name="action"
-              v-on:click="connexion"
+              v-on:click="modifier"
             >
-              Connexion
+              Modifier
             </button>
           </div>
         </div>
@@ -55,16 +43,32 @@ export default {
     return {
       titre: "",
       contenu: "",
-      user: "",
       isLoading: true,
-      articles: [],
     };
+  },
+  mounted() {
+    axios
+      .get("https://brach-node.herokuapp.com/article/" + this.$route.params.id)
+      .then((response) => {
+        const article = response.data[0];
+        this.titre = article.titre;
+        this.contenu = article.contenu;
+        this.id = article._id;
+        this.isLoading = false;
+      });
   },
   methods: {
     modifier() {
+      const data = {
+        titre: this.titre,
+        contenu: this.contenu,
+      };
+      console.log(data);
+
       axios
         .put(
           "https://brach-node.herokuapp.com/article/" + this.$route.params.id,
+          data,
           {
             "Content-Type": "application/x-www-form-urlencoded",
           }

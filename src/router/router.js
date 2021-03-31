@@ -3,7 +3,7 @@ import Register from "../pages/RegisterForm";
 import Login from "../pages/LoginForm";
 import Article from "../pages/Articles";
 import AddArticle from "../pages/AddArticle";
-import UpdateArticle from "../pages/UpdateArticle";
+import UpdateArticleForm from "../pages/UpdateArticleForm";
 
 import axios from "axios";
 import Vue from "vue";
@@ -19,7 +19,7 @@ const routes = [
   { path: "/add/article", component: AddArticle, name: "addArticle" },
   {
     path: "/update/article/:id",
-    component: UpdateArticle,
+    component: UpdateArticleForm,
     name: "updateArticle"
   }
 ];

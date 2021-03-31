@@ -1,2 +1,4 @@
 # VueJS
-Created with CodeSandbox
+
+## Setup
+"npm install"

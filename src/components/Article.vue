@@ -39,17 +39,10 @@ export default {
   },
   methods: {
     modifier() {
-      const jwt = localStorage.getItem("jwt");
-      axios
-        .put("https://brach-node.herokuapp.com/article/" + this._id, {
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${jwt}`,
-        })
-        .then((response) => {
-          console.log(response.data);
-          window.location.reload();
-        })
-        .catch((error) => console.log(error));
+      //const jwt = localStorage.getItem("jwt");
+      this.$router.push({
+        path: `/update/article/${this._id}`,
+      });
     },
     supprimer() {
       const jwt = localStorage.getItem("jwt");

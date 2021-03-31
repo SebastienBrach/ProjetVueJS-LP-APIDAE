@@ -3,6 +3,7 @@ import Register from "../pages/RegisterForm";
 import Login from "../pages/LoginForm";
 import Article from "../pages/Articles";
 import AddArticle from "../pages/AddArticle";
+import UpdateArticle from "../pages/UpdateArticle";
 
 import axios from "axios";
 import Vue from "vue";
@@ -16,7 +17,11 @@ const routes = [
   { path: "/login", component: Login, name: "login" },
   { path: "/article", component: Article, name: "article" },
   { path: "/add/article", component: AddArticle, name: "addArticle" },
-  { path: "/update/article", component: AddArticle, name: "updateArticle" }
+  {
+    path: "/update/article/:id",
+    component: UpdateArticle,
+    name: "updateArticle"
+  }
 ];
 
 Vue.prototype.$axios = axios;

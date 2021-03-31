@@ -27,10 +27,10 @@ export default {
   },
   methods: {
     ajouter() {
-      const bodyFormData = new URLSearchParams();
-      bodyFormData.append("titre", this.titre);
-      bodyFormData.append("contenu", this.contenu);
-      bodyFormData.append("mail", this.mail);
+      const dataArticle = new URLSearchParams();
+      dataArticle.append("titre", this.titre);
+      dataArticle.append("contenu", this.contenu);
+      dataArticle.append("mail", this.mail);
       axios({
         method: "post",
         url: "https://brach-node.herokuapp.com/addarticle",
@@ -39,7 +39,7 @@ export default {
             "Content-type": "application/x-www-form-urlencoded",
           },
         },
-        data: bodyFormData,
+        data: dataArticle,
       }).then((response) => {
         console.log(response.data);
         this.$myRouter.push("/article");

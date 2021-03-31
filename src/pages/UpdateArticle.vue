@@ -1,6 +1,7 @@
 <template>
   <div id="listeArticle">
-    <Article
+    HELLO
+    <UpdateArticle
       v-bind:titre="article.titre"
       v-bind:contenu="article.contenu"
       v-bind:key="article._id"
@@ -9,14 +10,13 @@
 </template>
 
 <script>
-import store from "../store/store";
 import axios from "axios";
-import Article from "../components/Article";
+import UpdateArticle from "../components/UpdateArticle";
 
 export default {
   name: "UpdateArticles",
   components: {
-    Article,
+    UpdateArticle,
   },
   data() {
     return {
@@ -25,11 +25,14 @@ export default {
   },
   mounted() {
     axios
-      .get("https://brach-node.herokuapp.com/article")
-      .then((response) =>
-        console.log(response.data)((this.articles = response.data))
-      )
-      .catch((error) => console.log(error));
+      .get("https://brach-node.herokuapp.com/article/" + this.$route.params.id)
+      .then((response) => {
+        const article = response.data;
+        this.titre = article.titre;
+        this.contenu = article.contenu;
+        this.user = article.user;
+        this.isLoading = false;
+      });
   },
 };
 </script>

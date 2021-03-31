@@ -53,7 +53,7 @@ export default {
     supprimer() {
       const jwt = localStorage.getItem("jwt");
       axios
-        .delete("http://localhost:3001/article/" + this._id, {
+        .delete("https://brach-node.herokuapp.com/article/" + this._id, {
           "Content-Type": "application/x-www-form-urlencoded",
           Authorization: `Bearer ${jwt}`,
         })

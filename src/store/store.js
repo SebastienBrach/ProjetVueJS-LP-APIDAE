@@ -1,28 +1,26 @@
 import axios from "axios";
 import Vue from "vue";
-import Vuex from "vuex";
+import vuex from "vuex";
 
-Vue.use(Vuex);
+Vue.use(vuex);
 
-const store = new Vuex.Store({
+Vue.prototype.articlesBDD = function () {
+  axios.get("https://brach-node.herokuapp.com/article/").then((response) => {
+    this.$store.dispatch("articleInStore", response.data);
+  });
+};
+
+const store = new vuex.Store({
   state: {
-    jwt: ""
+    articles: {}
   },
-  mutations: {
-    setJWT(state, jwt) {
-      state.jwt = jwt;
+  articleInStore: {
+    storeArticles(state, articles) {
+      state.articles = articles;
     }
   },
-  actions: {
-    fetchJWT({ commit }, { mail, password }) {
-      const jwt = axios
-        .post("https://brach-node.herokuapp.com/login", { mail, password })
-        .then((response) => {
-          console.log(response.data);
-          commit("setJWT", jwt);
-        });
-    }
-  }
+  namespaced: true
 });
+Vue.prototype.$store = store;
 
 export default store;

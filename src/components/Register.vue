@@ -7,13 +7,15 @@
     <br />
     <label for="password">Mot de passe : </label>
     <input type="password" name="password" v-model="password" />
-
+    <br />
     <button @click="createAccount">S'incrire</button>
     <!-- </form> -->
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Register",
   data() {
@@ -23,7 +25,15 @@ export default {
     };
   },
   methods: {
-    createAccount() {},
+    createAccount() {
+      const data = { email: this.email, password: this.password };
+      axios
+        .post("https://brach-node.herokuapp.com/register", data)
+        .then((response) => {
+          this.$myRouter.push("/article");
+        })
+        .catch((error) => console.log(error));
+    },
   },
 };
 </script>
